@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user #ここです！
+
   has_many :book_comments, dependent: :destroy
   
   
